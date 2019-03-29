@@ -45,6 +45,14 @@ class Form extends Component {
             imageUrl:""
         })
     }
+
+    handleDeleteClick = () => {
+        this.props.deleteProduct(this.state.id)
+        this.setState({
+            edit: false
+        })
+    }
+    
     render() {
         return(
             <div>
@@ -54,6 +62,7 @@ class Form extends Component {
                 <input type="text" name="imageUrl" placeholder="imageUrl" onChange={this.handleChange}/>
                 <button onClick={this.handleClick}>Add To Inventory</button>
                 <button onClick={this.handleResetClick}>Cancel</button>
+                <button onClick={this.handleDeleteClick}>Delete</button>
             </div>
         )
     }
