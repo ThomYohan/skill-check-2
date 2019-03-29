@@ -15,6 +15,8 @@ app.use(express.json())
 
 app.get('api/inventory', ProductList.getAll)
 app.post('api/product', ProductList.create)
+app.delete('api/inventory', ProductList.delete)
+app.put('api/inventory', ProductList.update)
 // app.post(create)
 // app.get(getAll)
 // app.get(getOne)

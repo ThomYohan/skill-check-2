@@ -42,13 +42,34 @@ class App extends Component {
     })
   }
 
+  updateProduct  = product => {
+    axios.put(`/api/product/${product.id}`, product)
+      .then( res => {
+        this.setState({product: res.data})
+      }).catch( err => {
+        console.log('error in updateProduct/app.js', err)
+      })
+  }
+
+  deleteProduct = id => {
+    axios.delete(`/api/inventory/${id}`)
+      .then( res => {
+        this.setState({product: res.data})
+        console.log('all good')
+      }).catch( err => {
+        console.log('error in deleteProduct(controller.js)', err)
+      })
+  }
+
 
   render() {
     return (
       <div className="App">
         
         <Dashboard />
-        <Form />
+        <Form 
+        handleClick={this.createProduct}
+        handleDeleteClick={this.deleteProduct}/>
         <Header />
       </div>
     );

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Axios from 'axios';
 
 class Form extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             name: "",
@@ -45,7 +45,6 @@ class Form extends Component {
             imageUrl:""
         })
     }
-
     render() {
         return(
             <div>
